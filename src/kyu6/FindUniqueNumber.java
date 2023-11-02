@@ -1,5 +1,6 @@
 package kyu6;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,8 +10,7 @@ public class FindUniqueNumber {
 
 		Map<Double, Integer> map = new HashMap<>();
 
-		for (int i = 0; i < arr.length; i++) {
-			double data = arr[i];
+		for (double data : arr) {
 			if (map.containsKey(data)) {
 				map.put(data, map.get(data) + 1);
 			} else {
@@ -18,11 +18,9 @@ public class FindUniqueNumber {
 			}
 		}
 
-		
-		double answer = map.entrySet().stream().sorted((a,b)->a.getValue().compareTo(b.getValue()))
-		.map(a->a.getKey()).toList().get(0);
 
-		return answer;
+		return map.entrySet().stream().sorted(Map.Entry.comparingByValue())
+		.map(Map.Entry::getKey).toList().get(0);
 	}
 
 }
