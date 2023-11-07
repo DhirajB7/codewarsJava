@@ -1,4 +1,4 @@
-package kyu7;
+package codewars.kyu7;
 
 public class DnaStrand {
 
