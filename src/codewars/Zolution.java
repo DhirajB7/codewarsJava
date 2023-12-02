@@ -1,17 +1,22 @@
 package codewars;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Zolution {
 	
 	public static void main(String[] args) {
  
-		System.out.println("*".repeat(10));
-		ArrayList<Integer> al = new ArrayList<Integer>();
-		al.add(10);
-		al.add(20);
+		int[] array = {0,1,2,3,4,5};
 		
-		System.out.println(al);
+		Map<Boolean, IntSummaryStatistics> collect = Arrays.stream(array).boxed().collect(Collectors.partitioningBy(i-> i%2==0,Collectors.summarizingInt(a->a)));
+		
+		System.out.println(collect.get(true).getSum());
 		
 	}
 
