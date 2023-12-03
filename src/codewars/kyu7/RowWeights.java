@@ -2,7 +2,6 @@ package codewars.kyu7;
 
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -10,13 +9,14 @@ import java.util.stream.IntStream;
 public class RowWeights {
 
 	public static int[] rowWeights( int[] weights) {
-		int[] answer = {0,0};
+		
+		int[] answer = new int[2];
 		
 		Map<Boolean, IntSummaryStatistics> collect = IntStream.range(0, weights.length).boxed().
 		collect(Collectors.partitioningBy(i->i%2==0,Collectors.summarizingInt(i->weights[i])));
 		
-		System.out.println(collect.get(true).getSum());
-		System.out.println(collect.get(false).getSum());
+		answer[0] = (int) collect.get(true).getSum();
+		answer[1] = (int) collect.get(false).getSum();
 		
 		return answer;
 	}
