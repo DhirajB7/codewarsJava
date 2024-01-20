@@ -1,16 +1,21 @@
 package codewars;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-
 public class Zolution {
 
 	public static void main(String[] args) {
-
-		System.out.println(Integer.toHexString(300));
 		
+		String sen = "Hello My name is      Dhiraj";
 		
-
+		String[] senArr = sen.split("");
+		
+		String answer = "";
+		
+		for(String a : senArr) {
+			answer = a+answer;
+		}
+		
+		System.out.println(answer);
+		
 	}
 
 }
