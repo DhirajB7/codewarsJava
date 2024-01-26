@@ -4,17 +4,10 @@ public class Zolution {
 
 	public static void main(String[] args) {
 		
-		String sen = "Hello My name is      Dhiraj";
-		
-		String[] senArr = sen.split("");
-		
-		String answer = "";
-		
-		for(String a : senArr) {
-			answer = a+answer;
+		for(char i = 'a' ; i<='z' ; i++ ) {
+			System.out.println(i);
+			System.out.println(String.valueOf(i).hashCode());
 		}
-		
-		System.out.println(answer);
 		
 	}
 
